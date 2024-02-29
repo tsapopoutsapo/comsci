@@ -1,8 +1,9 @@
-from abc import ABC, abstractmethod
+import commune as c
 from typing import List, Dict, Optional
 
 
-class DataCollectingModule(ABC):
+
+class DataCollectingModule(c.Module):
     def __init__(self, source_urls: List[str]):
         """
         Initialize the data collecting module with common configurations.
@@ -12,7 +13,7 @@ class DataCollectingModule(ABC):
         """
         self.source_urls = source_urls
 
-    @abstractmethod
+
     def fetch_paper_metadata(self, search_query: str) -> List[Dict]:
         """
         Fetch metadata for scientific papers based on a given search query.
@@ -25,7 +26,7 @@ class DataCollectingModule(ABC):
         """
         pass
 
-    @abstractmethod
+
     def download_paper(self, paper_id: str) -> Optional[bytes]:
         """
         Download the full text of a scientific paper by its unique identifier.
@@ -38,7 +39,6 @@ class DataCollectingModule(ABC):
         """
         pass
 
-    @abstractmethod
     def fetch_references(self, paper_id: str) -> List[str]:
         """
         Fetch references or cited works of a given scientific paper.
@@ -51,7 +51,6 @@ class DataCollectingModule(ABC):
         """
         pass
 
-    @abstractmethod
     def update_data_source(self, new_sources: List[str]) -> None:
         """
         Update the list of data sources or search engines to be queried.

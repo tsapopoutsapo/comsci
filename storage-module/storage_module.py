@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
+import commune as c
 from typing import Dict, Optional
 
 
-class StorageModule(ABC):
+class StorageModule(c.Module):
     def __init__(self, database_connection_string: str):
         """
         Initialize the storage module with database configurations.
@@ -12,7 +12,6 @@ class StorageModule(ABC):
         """
         self.database_connection_string = database_connection_string
 
-    @abstractmethod
     def save_paper(self, paper_data: Dict) -> None:
         """
         Save the metadata and, optionally, the full text of a scientific paper.
@@ -22,7 +21,6 @@ class StorageModule(ABC):
         """
         pass
 
-    @abstractmethod
     def retrieve_paper(self, paper_id: str) -> Optional[Dict]:
         """
         Retrieve a scientific paper by its identifier.
@@ -35,7 +33,6 @@ class StorageModule(ABC):
         """
         pass
 
-    @abstractmethod
     def update_paper_metadata(self, paper_id: str, metadata: Dict) -> None:
         """
         Update the metadata for an existing scientific paper.
@@ -46,7 +43,6 @@ class StorageModule(ABC):
         """
         pass
 
-    @abstractmethod
     def delete_paper(self, paper_id: str) -> None:
         """
         Delete a scientific paper from storage.

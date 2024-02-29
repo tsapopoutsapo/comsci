@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
+import commune as c
 from typing import List, Dict, Any
 
 
-class SearchEngineModule(ABC):
+class SearchEngineModule(c.Module):
     def __init__(self, search_engines: Dict[str, str]):
         """
         Initialize the search engine module with configurations.
@@ -12,7 +12,6 @@ class SearchEngineModule(ABC):
         """
         self.search_engines = search_engines
 
-    @abstractmethod
     def execute_search(self, query: str) -> List[Dict]:
         """
         Execute a search query on configured search engines.
@@ -25,7 +24,6 @@ class SearchEngineModule(ABC):
         """
         pass
 
-    @abstractmethod
     def filter_results(self, results: List[Dict], criteria: Dict[str, Any]) -> List[Dict]:
         """
         Filter search results based on specified criteria.
@@ -39,7 +37,6 @@ class SearchEngineModule(ABC):
         """
         pass
 
-    @abstractmethod
     def rank_results(self, results: List[Dict]) -> List[Dict]:
         """
         Rank the search results based on a predefined set of metrics.
@@ -52,7 +49,6 @@ class SearchEngineModule(ABC):
         """
         pass
 
-    @abstractmethod
     def update_search_algorithm(self, parameters: Dict[str, Any]) -> None:
         """
         Update the search algorithm parameters or logic.
