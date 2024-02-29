@@ -3,7 +3,7 @@ from typing import List, Dict, Any
 
 
 class SearchEngineModule(c.Module):
-    def __init__(self, search_engines: Dict[str, str]):
+    def __init__(self, search_engines: str):
         """
         Initialize the search engine module with configurations.
 
